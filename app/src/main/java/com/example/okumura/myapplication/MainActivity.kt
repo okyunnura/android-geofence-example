@@ -1,0 +1,24 @@
+package com.example.okumura.myapplication
+
+import android.Manifest
+import android.os.Build
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(
+                arrayOf(
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ), 1
+            )
+        }
+    }
+}
